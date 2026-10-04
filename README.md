@@ -49,6 +49,7 @@ The project demonstrates containerized Django deployment, AWS networking, databa
 * Amazon ECS
 * Application Load Balancer
 * Amazon RDS PostgreSQL
+* AWS Secret Manager
 * Amazon VPC
 * Security Groups
 * IAM
@@ -214,11 +215,6 @@ This was resolved by applying Django migrations during container startup:
 python manage.py migrate --noinput
 ```
 
-### RDS database name mismatch
-
-The RDS instance identifier was initially used as the PostgreSQL database name.
-
-The application was corrected to use the actual PostgreSQL database name.
 
 ### CSRF trusted origin
 
@@ -236,6 +232,7 @@ CSRF_TRUSTED_ORIGINS = [
 * Deploying Docker containers to Amazon ECS
 * Configuring ALB with ECS
 * Connecting ECS applications to private RDS PostgreSQL
+* AWS Secrets Manager integration
 * Managing Django environment variables
 * Handling database migrations in containers
 * Configuring Django CSRF protection behind AWS infrastructure
@@ -247,15 +244,8 @@ CSRF_TRUSTED_ORIGINS = [
 
 * HTTPS using ACM
 * Custom domain using Route 53
-* AWS Secrets Manager for database credentials
 * ECS service auto scaling
 * CI/CD using GitHub Actions
 * Infrastructure as Code using Terraform
 * CloudWatch monitoring and alarms
-* Separate ECS migration task for production deployments
-
-## Author
-
-Srinidhi
-
-AWS | Python | Django | Docker | Linux | Terraform
+* Blue/green deployment
