@@ -191,7 +191,7 @@ Controls network communication between the ALB, ECS tasks, and RDS database.
 
 ## Security Considerations
 
-* Database credentials are provided through environment variables.
+* Database credentials are securely managed using AWS Secrets Manager and injected into the ECS container at runtime. No database password is stored in the source code or Docker image.
 * RDS is not exposed directly to the public internet.
 * Security Groups restrict application and database traffic.
 * Django CSRF trusted origins are configured for the deployed application.
